@@ -11,6 +11,8 @@ ofstream flexoutfile;
 
 %%
 [ \t\n] ;
+\/\/(.*?)\n    ;
+[/][*][^*]*[*]+([^*/][^*]*[*]+)*[/]
 [0-9]+\.[0-9]+ {flexoutfile << "Float" << endl << yytext << endl;}
 [0-9]+ {flexoutfile << "Integer" << endl << yytext << endl;}
 if {flexoutfile << "Keyword" << endl << yytext << endl;}
