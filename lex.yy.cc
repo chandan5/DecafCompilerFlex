@@ -1892,7 +1892,7 @@ void yyfree (void * ptr )
 
 int main(int argc, char* argv[])
 {
-	// if ( argc != 2 ) /* argc should be 2 for correct execution */
+	//  if( argc > 2 ) /* argc should be 2 for correct execution */
     //  {
     //     /* We print argv[0] assuming it is the program name */
     //     cout << "Usage: " << argv[0] << " filename" << endl;
@@ -1910,17 +1910,18 @@ int main(int argc, char* argv[])
 
         // set lex to read from it instead of defaulting to STDIN:
         yyin = myfile;
-    }
-    flexoutfile.open("flex_output.txt");
-    yylex();
+        flexoutfile.open("flex_output.txt");
+        yylex();
 
-    if(error_count) {
-        cout << "Syntax error" << endl;
+        if(error_count) {
+            cout << "Syntax error" << endl;
+        }
+        else {
+            cout << "Success" << endl;
+        }
+        flexoutfile.close();
     }
-    else {
-        cout << "Success" << endl;
-    }
-    flexoutfile.close();
+
 
     return 0;
 }
