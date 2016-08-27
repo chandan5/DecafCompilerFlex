@@ -1,0 +1,6 @@
+Identifier
+x
+Assignment
+=
+Integer
+2
