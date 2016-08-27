@@ -13,12 +13,12 @@ ofstream flexoutfile;
 [ \t\n] ;
 [0-9]+\.[0-9]+ {flexoutfile << "Float" << endl << yytext << endl;}
 [0-9]+ {flexoutfile << "Integer" << endl << yytext << endl;}
-IF {flexoutfile << "Keyword" << endl << yytext << endl;}
-ELSE {flexoutfile << "Keyword" << endl << yytext << endl;}
-WHILE {flexoutfile << "Keyword" << endl << yytext << endl;}
-FOR {flexoutfile << "Keyword" << endl << yytext << endl;}
-INT {flexoutfile << "Keyword" << endl << yytext << endl;}
-FLOAT {flexoutfile << "Keyword" << endl << yytext << endl;}
+if {flexoutfile << "Keyword" << endl << yytext << endl;}
+else {flexoutfile << "Keyword" << endl << yytext << endl;}
+while {flexoutfile << "Keyword" << endl << yytext << endl;}
+for {flexoutfile << "Keyword" << endl << yytext << endl;}
+int {flexoutfile << "Keyword" << endl << yytext << endl;}
+float {flexoutfile << "Keyword" << endl << yytext << endl;}
 [a-zA-z][_a-zA-Z0-9]*    { flexoutfile << "Identifier" << endl << yytext << endl;}
 \= {flexoutfile << "Assignment" << endl << yytext << endl;}
 \=\= {flexoutfile << "Comparison" << endl << yytext << endl;}
@@ -32,7 +32,7 @@ FLOAT {flexoutfile << "Keyword" << endl << yytext << endl;}
 \/ {flexoutfile << "Operator" << endl << yytext << endl;}
 \{ {flexoutfile << "Open-bracket" << endl << yytext << endl;}
 \} {flexoutfile << "Close-bracket" << endl << yytext << endl;}
-\( {flexoutfile << "Open-paran" << endl << yytext << endl;}
+\( {flexoutfile << "Open-paren" << endl << yytext << endl;}
 \) {flexoutfile << "Close-paren" << endl << yytext << endl;}
 ; {flexoutfile << "Semicolon" << endl << yytext << endl;}
 . {++error_count;}
